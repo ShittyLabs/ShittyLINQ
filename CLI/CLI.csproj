@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShittyLINQ\ShittyLINQ.csproj" />
+    <ProjectReference Include="..\ThingsThatAreNotAggregate_WithAggregate\ShittyLINQ.csproj" />
+  </ItemGroup>
+
+</Project>
