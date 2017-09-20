@@ -1,6 +1,8 @@
 # ShittyLINQ
 The shitty version of the LINQ-to-objects Enumerable extension methods for .NET Core.
 
+[![Bless](https://cdn.rawgit.com/LunaGao/BlessYourCodeTag/master/tags/alpaca.svg)](http://lunagao.github.io/BlessYourCodeTag/)
+
 ## What this is  
 A collection of extension methods for `IEnumerable<T>`  
 This code that was authored while talking about how functions work and what map, filter and foldl do.  
