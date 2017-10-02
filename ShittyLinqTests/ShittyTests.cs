@@ -43,12 +43,65 @@ namespace ShittyLinqTests
     }
 
     [TestMethod]
+    public void TestFirst()
+    {
+      var shittyFirst = ShittyLINQ.Extensions.First(range);
+      var linqFirst = range.First();
+      Assert.AreEqual(shittyFirst, linqFirst);
+    }
+
+    [TestMethod]
     public void TestFoldl()
     {
       Func<int, int, int> sumOfEnumerable = (accumulator, val) => accumulator += val;
       var shittySum = ShittyLINQ.Extensions.Foldl(range, 0, sumOfEnumerable);
       var linqSum = range.Sum();
       Assert.AreEqual(shittySum, linqSum);
+    }
+
+    [TestMethod]
+    public void TestForEach()
+    {
+      var stringOfNumbers = "";
+      ShittyLINQ.Extensions.ForEach(range, (val) => stringOfNumbers += val.ToString());
+      var linqString = range.Aggregate("", (str, val) => str += val.ToString());
+      Assert.AreEqual(stringOfNumbers, linqString);
+    }
+
+    [TestMethod]
+    public void TestMap()
+    {
+      Func<int, string> stringsOfEnumerable = (val) => val.ToString();
+      var shittyMap = ShittyLINQ.Extensions.Map(range, stringsOfEnumerable);
+      var linqMap = range.Select(stringsOfEnumerable);
+      CollectionAssert.AreEqual(shittyMap.ToList(), linqMap.ToList());
+    }
+
+    [TestMethod]
+    public void TestMax()
+    {
+      Func<int, int> identity = (val) => val;
+      var shittyMax = ShittyLINQ.Extensions.Max(range, identity);
+      var linqMax = range.Max(identity);
+      Assert.AreEqual(shittyMax, linqMax);
+    }
+
+    [TestMethod]
+    public void TestSelect()
+    {
+      Func<int, string> stringsOfEnumerable = (val) => val.ToString();
+      var shittySelect = ShittyLINQ.Extensions.Select(range, stringsOfEnumerable);
+      var linqSelect = range.Select(stringsOfEnumerable);
+      CollectionAssert.AreEqual(shittySelect.ToList(), linqSelect.ToList());
+    }
+
+    [TestMethod]
+    public void TestWhere()
+    {
+      Func<int, bool> filterEnumerable = (item) => item % 2 == 0;
+      var shittyEvens = ShittyLINQ.Extensions.Where(range, filterEnumerable);
+      var linqEvens = range.Where(filterEnumerable);
+      CollectionAssert.AreEqual(shittyEvens.ToList(), linqEvens.ToList());
     }
   }
 }
