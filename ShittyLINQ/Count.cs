@@ -8,7 +8,7 @@ namespace ShittyLINQ
     {
         public static long Count<T>(this IEnumerable<T> self)
         {
-            return self.Aggregate(0L, (memo, v) => memo++);
+            return self.Aggregate(0L, (memo, v) => ++memo);
         }
     }
 }
