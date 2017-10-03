@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShittyLINQ\ShittyLINQ.csproj" />
-    <ProjectReference Include="..\ThingsThatAreNotAggregate_WithAggregate\ShittyLINQ.csproj" />
   </ItemGroup>
 
 </Project>
