@@ -9,7 +9,7 @@ This code that was authored while talking about how functions work and what map,
 These are not meant to be used by anyone ever.
 
 ## What this is not
- - Tested
+ - ~~Tested~~ (Tests added 10/3/2017!)
  - Performant
  - [The good version of LINQ](https://docs.microsoft.com/en-us/dotnet/csharp/linq/)
 
