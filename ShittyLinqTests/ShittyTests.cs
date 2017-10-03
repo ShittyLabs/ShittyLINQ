@@ -17,7 +17,7 @@ namespace ShittyLinqTests
     }
 
     [TestMethod]
-    public void TestAggragate()
+    public void TestAggregate()
     {
       Func<int, int, int> productOfEnumerable = (accum, val) => accum *= val;
       var shittyProd = ShittyLINQ.Extensions.Aggregate(range, 1, productOfEnumerable);
