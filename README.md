@@ -6,7 +6,8 @@ The shitty version of the LINQ-to-objects Enumerable extension methods for .NET 
 ## What this is  
 A collection of extension methods for `IEnumerable<T>`  
 This code that was authored while talking about how functions work and what map, filter and foldl do.  
-These are not meant to be used by anyone ever.
+These are not meant to be used by anyone ever.  
+This assembly has no dependencies other than Generic Collections.
 
 ## What this is not
  - ~~Tested~~ (Tests added 10/3/2017!)
