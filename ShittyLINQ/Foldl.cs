@@ -27,5 +27,11 @@ namespace ShittyLINQ
             }
             return output;
         }
+
+        public static U Foldl<T, U>(this IEnumerable<T> self, Func<U, T, U> accumulator)
+            where U : new()
+        {
+            return self.Foldl(new U(), accumulator);
+        }
     }
 }
