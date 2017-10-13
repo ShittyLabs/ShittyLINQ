@@ -13,5 +13,11 @@ namespace ShittyLINQ
         {
             return self.Foldl(seed, accumulator);
         }
+
+        public static U Aggregate<T, U>(this IEnumerable<T> self, Func<U, T, U> accumulator)
+            where U : new()
+        {
+            return self.Foldl(seed, new U(), accumulator);
+        }
     }
 }
