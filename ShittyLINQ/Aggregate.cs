@@ -11,6 +11,7 @@ namespace ShittyLINQ
         /// </summary>
         public static U Aggregate<T, U>(this IEnumerable<T> self, U memo, Func<U, T, U> accumulator)
         {
+            if (self == null) throw new ArgumentNullException();
             return self.Foldl(memo, accumulator);
         }
     }
