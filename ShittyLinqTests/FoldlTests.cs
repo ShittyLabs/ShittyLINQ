@@ -105,6 +105,17 @@ namespace ShittyTests
         }
 
         [TestMethod]
+        public void Foldl_SourceOneItem()
+        {
+            int item = 1;
+            int[] numbers = new int[] { item };
+
+            int result = numbers.Foldl((x, y) => x + y);
+
+            Assert.AreEqual(item, result);
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
         public void Foldl_CollectionHasBeenModified()
         {
