@@ -91,7 +91,7 @@ namespace ShittyTests
         {
             int[] numbers = new int[] { };
 
-            int result = numbers.Foldl((x, y) => x + y);
+            int result = numbers.Aggregate((x, y) => x + y);
         }
 
         [TestMethod]
@@ -109,7 +109,7 @@ namespace ShittyTests
             int item = 1;
             int[] numbers = new int[] { item };
 
-            int result = numbers.Foldl((x, y) => x + y);
+            int result = numbers.Aggregate((x, y) => x + y);
 
             Assert.AreEqual(item, result);
         }
