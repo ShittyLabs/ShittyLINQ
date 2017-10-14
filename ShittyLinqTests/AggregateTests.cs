@@ -86,6 +86,15 @@ namespace ShittyTests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void Aggregate_SourceIsEmpty_NoSeed()
+        {
+            int[] numbers = new int[] { };
+
+            int result = numbers.Foldl((x, y) => x + y);
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void Aggregate_SourceIsNull()
         {

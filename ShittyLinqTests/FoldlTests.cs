@@ -87,6 +87,15 @@ namespace ShittyTests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void Foldl_SourceIsEmpty_NoSeed()
+        {
+            int[] numbers = new int[] { };
+
+            int result = numbers.Foldl((x, y) => x + y);
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void Foldl_SourceIsNull()
         {
