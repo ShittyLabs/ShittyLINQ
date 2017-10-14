@@ -78,11 +78,11 @@ namespace ShittyTests
         public void Aggregate_SourceIsEmpty()
         {
             int[] numbers = new int[] { };
-            int expectedResult = 0;
+            int seed = 0;
 
-            int result = numbers.Aggregate(0, (x, y) => x + y);
+            int result = numbers.Aggregate(seed, (x, y) => x + y);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(seed, result);
         }
 
         [TestMethod]

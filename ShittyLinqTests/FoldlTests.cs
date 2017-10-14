@@ -79,11 +79,11 @@ namespace ShittyTests
         public void Foldl_SourceIsEmpty()
         {
             int[] numbers = new int[] { };
-            int expectedResult = 0;
+            int seed = 0;
 
-            int result = numbers.Foldl(0, (x, y) => x + y);
+            int result = numbers.Foldl(seed, (x, y) => x + y);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(seed, result);
         }
 
         [TestMethod]
