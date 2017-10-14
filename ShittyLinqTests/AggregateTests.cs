@@ -126,5 +126,17 @@ namespace ShittyTests
                 return y;
             });
         }
+
+        [TestMethod]
+        public void Aggregate_SeedIsFirst()
+        {
+            int item = 1;
+            int[] numbers = new int[] { item };
+
+            int without = numbers.Aggregate((x, y) => x + y);
+            int with = new int[0].Aggregate(item, (x, y) => x + y);
+
+            Assert.AreEqual(with, without);
+        }
     }
 }

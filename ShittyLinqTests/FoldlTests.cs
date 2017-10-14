@@ -127,5 +127,18 @@ namespace ShittyTests
                 return y;
             });
         }
+
+        [TestMethod]
+        public void Foldl_SeedIsFirst()
+        {
+            int item = 1;
+            int[] numbers = new int[] { item };
+
+            int without = numbers.Foldl((x, y) => x + y);
+            int with = new int[0].Foldl(item, (x, y) => x + y);
+
+            Assert.AreEqual(with, without);
+        }
+
     }
 }
