@@ -44,7 +44,7 @@ namespace ShittyTests
         }
 
         [TestMethod]
-        public void Foldl_MemoValueIsMoreThanZero()
+        public void Foldl_SeedValueIsMoreThanZero()
         {
             int[] numbers = new int[] { 1, 2, 3, 4, 5 };
             int expectedResult = 10 + 1 + 2 + 3 + 4 + 5;
@@ -65,7 +65,7 @@ namespace ShittyTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Foldl_MemoIsNull()
+        public void Foldl_SeedIsNull()
         {
             int[] numbers = new int[] { 1, 2, 3, 4, 5 };
             int? expectedResult = null;
