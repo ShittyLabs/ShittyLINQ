@@ -18,7 +18,10 @@ namespace ShittyLINQ
         public static U Foldl<T, U>(this IEnumerable<T> self, U seed, Func<U, T, U> accumulator)
         {
             var iterator = self.GetEnumerator();
-            iterator.MoveNext();
+
+            if (!iterator.MoveNext())
+                return seed;
+
             return Foldl(iterator, accumulator(seed, iterator.Current), accumulator);
         }
 
