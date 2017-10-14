@@ -12,14 +12,14 @@ namespace ShittyLINQ
         /// <typeparam name="T">The type of shit that's 'bout to get folded.</typeparam>
         /// <typeparam name="U">The folded shit.</typeparam>
         /// <param name="self">A bunch of shit to fold.</param>
-        /// <param name="memo">A seed to start your shit with. A kernel, if you will.</param>
+        /// <param name="seed">A seed to start your shit with. A kernel, if you will.</param>
         /// <param name="accumulator">Describe how you want to fold this shit up.</param>
         /// <returns>The folded shit.</returns>
-        public static U Foldl<T, U>(this IEnumerable<T> self, U memo, Func<U, T, U> accumulator)
+        public static U Foldl<T, U>(this IEnumerable<T> self, U seed, Func<U, T, U> accumulator)
         {
             var iterator = self.GetEnumerator();
             iterator.MoveNext();
-            U output = accumulator(memo, iterator.Current);
+            U output = accumulator(seed, iterator.Current);
 
             while (iterator.MoveNext())
             {
