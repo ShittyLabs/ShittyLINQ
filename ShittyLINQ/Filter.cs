@@ -14,6 +14,7 @@ namespace ShittyLINQ
         /// <returns></returns>
         public static IEnumerable<T> Filter<T>(this IEnumerable<T> self, Func<T, bool> predicate)
         {
+            if (self == null || predicate == null) throw new ArgumentNullException();
             var iterator = self.GetEnumerator();
             while (iterator.MoveNext())
             {
