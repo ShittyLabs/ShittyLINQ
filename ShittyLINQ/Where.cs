@@ -11,6 +11,7 @@ namespace ShittyLINQ
         /// </summary>
         public static IEnumerable<T> Where<T>(this IEnumerable<T> self, Func<T, bool> predicate)
         {
+            if (self == null || predicate == null) throw new ArgumentNullException();
             Func<List<T>, T, List<T>> mapFunc = (memo, obj) =>
             {
                 if (predicate(obj)) memo.Add(obj);
