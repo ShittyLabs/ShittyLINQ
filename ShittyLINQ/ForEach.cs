@@ -14,6 +14,7 @@ namespace ShittyLINQ
         /// <param name="verb">What to do with all of this shit.</param>
         public static void ForEach<T>(this IEnumerable<T> self, Action<T> verb)
         {
+            if (self == null || verb == null) throw new ArgumentNullException();
             var iterator = self.GetEnumerator();
             while (iterator.MoveNext())
             {
