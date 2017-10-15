@@ -7,6 +7,8 @@ namespace ShittyLINQ
     {
         public static T ElementAt<T>(this IEnumerable<T> self, int elementIndex)
         {
+            if (self == null) throw new ArgumentNullException();
+
             var index = 0;
             foreach (var item in self)
             {
@@ -16,7 +18,7 @@ namespace ShittyLINQ
                 }
                 index++;
             }
-            return default(T);
+            throw new ArgumentOutOfRangeException();
         }
     }
 }
