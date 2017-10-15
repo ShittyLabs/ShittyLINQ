@@ -8,8 +8,9 @@ namespace ShittyLINQ
     {
         public static int Max<T>(this IEnumerable<T> self, Func<T, int> selector)
         {
+            if (self == null || selector == null) throw new ArgumentNullException();
             var iterator = self.GetEnumerator();
-            if (!iterator.MoveNext()) throw new Exception("The set is empty.");
+            if (!iterator.MoveNext()) throw new InvalidOperationException("The sequence is empty.");
             var max = selector(iterator.Current);
             while(iterator.MoveNext())
             {
