@@ -44,7 +44,7 @@ namespace ShittyTests
         }
 
         [TestMethod]
-        public void Foldl_MemoValueIsMoreThanZero()
+        public void Foldl_SeedValueIsMoreThanZero()
         {
             int[] numbers = new int[] { 1, 2, 3, 4, 5 };
             int expectedResult = 10 + 1 + 2 + 3 + 4 + 5;
@@ -65,7 +65,7 @@ namespace ShittyTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Foldl_MemoIsNull()
+        public void Foldl_SeedIsNull()
         {
             int[] numbers = new int[] { 1, 2, 3, 4, 5 };
             int? expectedResult = null;
@@ -79,11 +79,20 @@ namespace ShittyTests
         public void Foldl_SourceIsEmpty()
         {
             int[] numbers = new int[] { };
-            int expectedResult = 0;
+            int seed = 0;
 
-            int result = numbers.Foldl(0, (x, y) => x + y);
+            int result = numbers.Foldl(seed, (x, y) => x + y);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(seed, result);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void Foldl_SourceIsEmpty_NoSeed()
+        {
+            int[] numbers = new int[] { };
+
+            int result = numbers.Foldl((x, y) => x + y);
         }
 
         [TestMethod]
@@ -93,6 +102,17 @@ namespace ShittyTests
             int[] numbers = null;
 
             int result = numbers.Foldl(0, (x, y) => x + y);
+        }
+
+        [TestMethod]
+        public void Foldl_SourceOneItem()
+        {
+            int item = 1;
+            int[] numbers = new int[] { item };
+
+            int result = numbers.Foldl((x, y) => x + y);
+
+            Assert.AreEqual(item, result);
         }
 
         [TestMethod]
@@ -107,5 +127,18 @@ namespace ShittyTests
                 return y;
             });
         }
+
+        [TestMethod]
+        public void Foldl_SeedIsFirst()
+        {
+            int item = 1;
+            int[] numbers = new int[] { item };
+
+            int without = numbers.Foldl((x, y) => x + y);
+            int with = new int[0].Foldl(item, (x, y) => x + y);
+
+            Assert.AreEqual(with, without);
+        }
+
     }
 }

@@ -9,9 +9,14 @@ namespace ShittyLINQ
         /// <summary>
         /// This just passes your shit through to the Foldl extension method.
         /// </summary>
-        public static U Aggregate<T, U>(this IEnumerable<T> self, U memo, Func<U, T, U> accumulator)
+        public static U Aggregate<T, U>(this IEnumerable<T> self, U seed, Func<U, T, U> accumulator)
         {
-            return self.Foldl(memo, accumulator);
+            return self.Foldl(seed, accumulator);
+        }
+
+        public static U Aggregate<U>(this IEnumerable<U> self, Func<U, U, U> accumulator)
+        {
+            return self.Foldl(accumulator);
         }
     }
 }
