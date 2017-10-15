@@ -16,6 +16,7 @@ namespace ShittyLINQ
         /// <returns></returns>
         public static IEnumerable<U> Map<T, U>(this IEnumerable<T> self, Func<T, U> transform)
         {
+            if (self == null || transform == null) throw new ArgumentNullException();
             var iterator = self.GetEnumerator();
             while (iterator.MoveNext())
             {
