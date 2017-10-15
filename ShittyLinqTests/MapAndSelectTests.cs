@@ -60,6 +60,7 @@ namespace ShittyTests
             int[] numbers = null;
 
             IEnumerable<double> result = numbers.Map(x => Math.Pow((double)x, 2));
+            foreach (var num in result) { }
         }
 
         [TestMethod]
@@ -78,6 +79,7 @@ namespace ShittyTests
             int[] numbers = new int[] { 1, 2, 3, 4, 5 };
 
             IEnumerable<double> result = numbers.Map<int, double>(null);
+            foreach (var num in result) { }
         }
 
         [TestMethod]
