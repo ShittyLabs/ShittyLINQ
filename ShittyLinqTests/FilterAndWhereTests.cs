@@ -63,6 +63,7 @@ namespace ShittyTests
             int[] numbers = new int[] { 1, 2, 3, 4, 5 };
 
             IEnumerable<int> result = numbers.Filter(null);
+            foreach(var num in result) { }
         }
 
         [TestMethod]
@@ -81,6 +82,7 @@ namespace ShittyTests
             int[] numbers = null;
 
             IEnumerable<int> result = numbers.Filter(x => x % 2 == 1);
+            foreach (var num in result) { }
         }
 
         [TestMethod]
