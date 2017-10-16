@@ -15,7 +15,7 @@ namespace ShittyLINQ
                 throw new ArgumentOutOfRangeException("Count must be a non-negative integer.");
             }
 
-            if (int.MaxValue - start + 1 < count)
+            if (count - 1 > int.MaxValue - start)
             {
                 throw new ArgumentOutOfRangeException("Generates integers that are larger than the maximum value.");
             }

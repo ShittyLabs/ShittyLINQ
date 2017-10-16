@@ -23,10 +23,10 @@ namespace ShittyTests
         public void Range_ArgumentOutOfRangeException()
         {
             // Over int.MaxValue
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => Enumerable.Range(int.MaxValue - 1, 2));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => Enumerable.Range(int.MaxValue, 2).ToList());
 
             // Negative count
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => Enumerable.Range(0, -1));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => Enumerable.Range(0, -1).ToList());
         }
     }
 }
