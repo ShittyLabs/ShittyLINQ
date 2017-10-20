@@ -8,7 +8,7 @@ namespace ShittyLINQ
         public static IEnumerable<IEnumerable<T>> Batch<T>(this IEnumerable<T> self, int bucketSize)
         {
             if (bucketSize <= 0)
-                throw new ArgumentNullException("The batch size should be greather than 0");
+                throw new ArgumentOutOfRangeException("The batch size should be greather than 0");
 
             var currentBatch = new List<T>();
 
