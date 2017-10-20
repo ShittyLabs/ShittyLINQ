@@ -47,7 +47,7 @@ namespace ShittyTests
         [TestMethod]
         public void Batch_Invalid_Size()
         {
-            Assert.ThrowsException<ArgumentNullException>(() =>
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() =>
             {
                 var data = Enumerable.Range(1, 12);
 
