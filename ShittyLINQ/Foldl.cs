@@ -17,8 +17,13 @@ namespace ShittyLINQ
         /// <returns>The folded shit.</returns>
         public static U Foldl<T, U>(this IEnumerable<T> self, U memo, Func<U, T, U> accumulator)
         {
+            if (self == null || memo == null || accumulator == null) throw new ArgumentNullException();
+            
             var iterator = self.GetEnumerator();
-            iterator.MoveNext();
+            if(!iterator.MoveNext())
+            {
+                return memo;
+            }
             U output = accumulator(memo, iterator.Current);
 
             while (iterator.MoveNext())

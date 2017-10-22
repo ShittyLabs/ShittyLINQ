@@ -60,15 +60,6 @@ namespace ShittyLinqTests
     }
 
     [TestMethod]
-    public void TestForEach()
-    {
-      var stringOfNumbers = "";
-      ShittyLINQ.Extensions.ForEach(range, (val) => stringOfNumbers += val.ToString());
-      var linqString = range.Aggregate("", (str, val) => str += val.ToString());
-      Assert.AreEqual(stringOfNumbers, linqString);
-    }
-
-    [TestMethod]
     public void TestMap()
     {
       Func<int, string> stringsOfEnumerable = (val) => val.ToString();
