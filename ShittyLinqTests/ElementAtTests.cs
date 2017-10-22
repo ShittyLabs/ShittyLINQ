@@ -9,7 +9,7 @@ namespace ShittyTests
     public class ElementAtTests
     {
         [TestMethod]
-        public void Element_ReturnsElemetAtIndex()
+        public void Element_ReturnsElementAtIndex()
         {
             List<int> numbers = new List<int> {0,1,2,3,4,5,6};
             var expected = numbers[4];
@@ -27,7 +27,7 @@ namespace ShittyTests
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Element_EqualToColletionCount()
+        public void Element_EqualToCollectionCount()
         {
             int[] numbers = new int[] {0,1};
 
@@ -36,7 +36,7 @@ namespace ShittyTests
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Element_GreaterThanColletionCount()
+        public void Element_GreaterThanCollectionCount()
         {
             int[] numbers = new int[] { 0, 1 };
 
