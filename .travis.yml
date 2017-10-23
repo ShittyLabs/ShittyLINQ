@@ -1,2 +1,6 @@
 language: csharp
-solution: ShittyLINQ.sln
+mono: none
+dotnet: 1.1
+dist: trusty
+script:
+ - dotnet restore
