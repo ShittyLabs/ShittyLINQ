@@ -4,3 +4,4 @@ dotnet: 1.1
 dist: trusty
 script:
  - dotnet restore
+ 
