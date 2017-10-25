@@ -2,6 +2,7 @@
 The shitty version of the LINQ-to-objects Enumerable extension methods for .NET Core.
 
 [![Bless](https://cdn.rawgit.com/LunaGao/BlessYourCodeTag/master/tags/alpaca.svg)](http://lunagao.github.io/BlessYourCodeTag/)
+[![Build status](https://ci.appveyor.com/api/projects/status/vhjo0ouavf0ccdjb?svg=true)](https://ci.appveyor.com/project/jreina/shittylinq)
 
 ## What this is  
 A collection of extension methods for `IEnumerable<T>`  

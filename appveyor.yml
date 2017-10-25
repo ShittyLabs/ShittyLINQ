@@ -1,0 +1,17 @@
+version: 0.1.{build}
+image: Visual Studio 2017
+build_script:
+- cmd: >-
+    dotnet build
+
+    dotnet pack
+test: off
+artifacts:
+- path: .\ShittyLINQ\bin\Debug\netcoreapp1.1\ShittyLINQ.dll
+- path: .\ShittyLINQ\bin\Debug\ShittyLINQ.*.nupkg
+deploy:
+  provider: NuGet
+  api_key:
+    secure: Vrrtx5P/dF4zXnDo3tPhO/2E40A23iRqFQDJGD9DUH0GXQRWxMZOpk82bfeqJk7k
+  skip_symbols: false
+  artifact: /.*\.nupkg/

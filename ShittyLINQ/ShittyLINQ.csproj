@@ -1,7 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
+    <Version>0.1.2</Version>
+    <Description>The shitty version of LINQ.</Description>
+    <PackageLicenseUrl>https://github.com/jreina/ShittyLINQ/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/jreina/ShittyLINQ</PackageProjectUrl>
+    <Copyright>Copyright 2017 Johnny Reina</Copyright>
+    <RepositoryUrl>https://github.com/jreina/ShittyLINQ</RepositoryUrl>
+    <PackageTags>fp utilities</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>bin\Release\ShittyLINQ.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>
