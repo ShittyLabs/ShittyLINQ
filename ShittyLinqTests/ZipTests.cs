@@ -1,7 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using ShittyLINQ;
 
 namespace ShittyTests
@@ -16,13 +14,13 @@ namespace ShittyTests
             char[] second = new[] { 'w', 'o', 'r', 'l', 'd' };
 
             var actual = source.Zip(second).ToList();
-            var expected = new Tuple<char, char>[]
+            var expected = new (char, char)[]
             {
-                Tuple.Create('h', 'w'),
-                Tuple.Create('e', 'o'),
-                Tuple.Create('l', 'r'),
-                Tuple.Create('l', 'l'),
-                Tuple.Create('o', 'd'),
+                ('h', 'w'),
+                ('e', 'o'),
+                ('l', 'r'),
+                ('l', 'l'),
+                ('o', 'd'),
             };
 
             CollectionAssert.AreEqual(expected, actual);

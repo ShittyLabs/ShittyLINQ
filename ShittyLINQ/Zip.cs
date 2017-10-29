@@ -15,7 +15,7 @@ namespace ShittyLINQ
         /// The output sequence will be as long as the shortest input sequence.
         /// </para>
         /// </summary>
-        public static IEnumerable<Tuple<T, U>> Zip<T, U>(this IEnumerable<T> source, IEnumerable<U> second)
+        public static IEnumerable<(T, U)> Zip<T, U>(this IEnumerable<T> source, IEnumerable<U> second)
         {
             if (source == null || second == null) throw new ArgumentNullException();
 
@@ -24,7 +24,7 @@ namespace ShittyLINQ
 
             while(firstEnumerator.MoveNext() && secondEnumerator.MoveNext())
             {
-                yield return Tuple.Create(firstEnumerator.Current, secondEnumerator.Current);
+                yield return (firstEnumerator.Current, secondEnumerator.Current);
             }
         }
     }
