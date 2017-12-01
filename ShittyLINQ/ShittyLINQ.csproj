@@ -9,7 +9,6 @@
     <Copyright>Copyright 2017 Johnny Reina</Copyright>
     <RepositoryUrl>https://github.com/jreina/ShittyLINQ</RepositoryUrl>
     <PackageTags>fp utilities</PackageTags>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
