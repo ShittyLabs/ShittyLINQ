@@ -1,7 +1,7 @@
 version: 0.1.{build}
 image: Visual Studio 2017
 build_script:
-- ps: dotnet pack -c Release /p:PackageVersion=$env:APPVEYOR_BUILD_NUMBER
+- ps: dotnet pack -c Release /p:PackageVersion=0.1.$env:APPVEYOR_BUILD_NUMBER
 test: off
 artifacts:
 - path: .\ShittyLINQ\bin\Release\netcoreapp2.0\ShittyLINQ.dll
