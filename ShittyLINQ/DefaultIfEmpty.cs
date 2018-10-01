@@ -13,8 +13,8 @@ namespace ShittyLINQ
 
         public static IEnumerable<T> DefaultIfEmpty<T>(this IEnumerable<T> self, T defaultValue)
         {
-            if (defaultValue == null) throw new ArgumentNullException();
-            if (self == null || self.Count() <= 0)
+            if (self == null) throw new ArgumentNullException();
+            if (self.Count() <= 0)
             {
                 yield return defaultValue;
             }
