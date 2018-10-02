@@ -8,27 +8,19 @@ namespace ShittyLINQ
     {
         public static IEnumerable<T> OrderBy<T, k>(this IEnumerable<T> source, Func<T, k> keySelector)
         {
-            if (source == null) throw new ArgumentNullException("source");
-            if (keySelector == null) throw new ArgumentNullException("keySelector");
-            List<T> buffer = new List<T>();
-            Sortable<T,k> sortable = new Sortable<T, k>(keySelector, null, false);
-            int count = (int)source.Count();
-            sortable.ComputeKeys(source.ToList().ToArray(), count);
-
-            int[] map = new int[count];
-            for (int i = 0; i < count; i++) map[i] = i;
-            sortable.QuickSort(map, 0, count - 1);
-            for (int i = 0; i < source.Count(); i++)
-                buffer.Add(source.ElementAt(map[i]));
-
-            return buffer;
+            return OrderedEnumerable(source, keySelector, null, false);
         }
         public static IEnumerable<T> OrderBy<T, K>(this IEnumerable<T> source, Func<T, K> keySelector, IComparer<K> comparer)
         {
+            return OrderedEnumerable(source, keySelector, comparer, false);
+        }
+        private static IEnumerable<T> OrderedEnumerable<T, K>(IEnumerable<T> source, Func<T, K> keySelector, IComparer<K> comparer,bool descending)
+        {
             if (source == null) throw new ArgumentNullException("source");
             if (keySelector == null) throw new ArgumentNullException("keySelector");
+
             List<T> buffer = new List<T>();
-            Sortable<T, K> sortable = new Sortable<T, K>(keySelector, comparer, false);
+            Sortable<T, K> sortable = new Sortable<T, K>(keySelector, comparer, descending);
             int count = (int)source.Count();
             sortable.ComputeKeys(source.ToList().ToArray(), count);
 
