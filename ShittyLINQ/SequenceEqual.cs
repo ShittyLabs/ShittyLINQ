@@ -15,7 +15,7 @@ namespace ShittyLINQ
 
             for (int i = 0; i < first.Count(); i++)
             {
-                areSequenceEquals &= (first.ElementAt(i).Equals(second.ElementAt(i));
+                areSequenceEquals &= (first.ElementAt(i).Equals(second.ElementAt(i)));
             }
 
             return areSequenceEquals;
