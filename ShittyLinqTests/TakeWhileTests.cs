@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ShittyLINQ;
 using ShittyTests.TestHelpers;
+using System;
+using System.Collections.Generic;
 
 namespace ShittyTests
 {
@@ -53,6 +55,40 @@ namespace ShittyTests
 
             Assert.AreEqual(actual.Count(), 0);
             Assert.AreEqual(actual2.Count(), 0);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TakeWhile_ThrowsIfSourceIsNull()
+        {
+            IEnumerable<int> items = null;
+            items.TakeWhile(e => e > 5)?.ToList();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TakeWhile_ThrowsIfPredicateIsNull()
+        {
+            IEnumerable<int> items = new int[] { 1, 6, 8, 10 };
+            Func<int, bool> predicate = null;
+            items.TakeWhile(predicate)?.ToList();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TakeWhile_SecondOverloadThrowsIfSourceIsNull()
+        {
+            IEnumerable<int> items = null;
+            items.TakeWhile((e, i) => e > 5)?.ToList();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TakeWhile_SecondOverloadThrowsIfPredicateIsNull()
+        {
+            IEnumerable<int> items = new int[] { 1, 6, 8, 10 };
+            Func<int, int, bool> predicate = null;
+            items.TakeWhile(predicate)?.ToList();
         }
     }
 }

@@ -14,6 +14,12 @@ namespace ShittyLINQ
         /// <returns></returns>
         public static IEnumerable<TSource> TakeWhile<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
         {
+            if (source is null)
+                throw new ArgumentNullException(nameof(source));
+
+            if (predicate is null)
+                throw new ArgumentNullException(nameof(predicate));
+
             foreach (var element in source)
             {
                 if (!predicate(element))
@@ -33,6 +39,12 @@ namespace ShittyLINQ
         /// <returns></returns>
         public static IEnumerable<TSource> TakeWhile<TSource>(this IEnumerable<TSource> source, Func<TSource, int, bool> predicate)
         {
+            if (source is null)
+                throw new ArgumentNullException(nameof(source));
+
+            if (predicate is null)
+                throw new ArgumentNullException(nameof(predicate));
+
             int i = 0;
             foreach (var element in source)
             {
