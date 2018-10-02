@@ -6,6 +6,7 @@ namespace ShittyLINQ
 {
     public static partial class Extensions
     {
+        
         public static T FirstOrDefault<T>(this IEnumerable<T> self)
         {
             if (self == null) throw new ArgumentNullException();

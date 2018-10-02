@@ -4,6 +4,7 @@ using System;
 
 namespace ShittyTests
 {
+    
     [TestClass]
     public class FirstOrDefaultTests
     {
