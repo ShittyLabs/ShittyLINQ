@@ -28,5 +28,22 @@ namespace ShittyTests
             // Negative count
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => Enumerable.Range(0, -1).ToList());
         }
+
+        [TestMethod]
+        public void Repeat_Repeats5Times()
+        {
+            IEnumerable<int> expectedNumbers = new[] { 1, 1, 1, 1, 1 };
+
+            var actualNumbers = Enumerable.Repeat(1, 5);
+
+            TestHelper.AssertCollectionsAreSame(expectedNumbers, actualNumbers);
+        }
+
+        [TestMethod]
+        public void Repeat_ArgumentOutOfRangeException()
+        {
+            // Negative count
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => Enumerable.Repeat(1, -1).ToList());
+        }
     }
 }
