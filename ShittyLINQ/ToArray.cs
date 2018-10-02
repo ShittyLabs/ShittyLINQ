@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ShittyLINQ
 {
-     public static partial class Extension
+     public static partial class Extensions
      {
         public static T[] ToArray<T>(this IEnumerable<T> source)
         {
