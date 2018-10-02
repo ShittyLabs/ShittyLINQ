@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 
-
 namespace ShittyLINQ
 {
      public static partial class Extensions
